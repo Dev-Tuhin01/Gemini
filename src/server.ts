@@ -1,11 +1,11 @@
 import express from "express";
+import routes from "./routes"
 
 const app = express();
 const port = 3000;
 
-app.get("/health",(req,res)=>{
-  res.status(200).json({message:"All is running A-Ok 👌"})
-})
+app.use(express.json());
+app.use("/api/",routes);
 
 app.listen(port, ()=>{
   console.log(`🏃 App is running on port ${port}`)
